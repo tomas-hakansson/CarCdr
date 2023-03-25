@@ -15,8 +15,9 @@ CarCdrTest >> testCADR_getsMiddle [
 { #category : #tests }
 CarCdrTest >> testCAR_getsFirst [
 
-	| a |
-	a := #(1 2 3) car.
+	| a l |
+	l := #( 1 2 3 ).
+	a := l car.
 	self assert: a equals: 1
 ]
 
