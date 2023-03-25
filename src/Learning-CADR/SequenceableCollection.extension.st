@@ -14,5 +14,5 @@ SequenceableCollection >> doesNotUnderstand: aMessage [
 	s := aMessage selector.
 	s isCarCdr
 		ifTrue: [ ^ SequenceableCollection carCdr: s ]
-		ifFalse: [ self doesNotUnderstand: aMessage ]
+		ifFalse: [ super doesNotUnderstand: aMessage ]
 ]
