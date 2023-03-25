@@ -3,7 +3,11 @@ Extension { #name : #SequenceableCollection }
 { #category : #'*Learning-CADR' }
 SequenceableCollection class >> carCdr: aSelector [
 
-	SequenceableCollection compile: aSelector generateCarCdr classified: 'generated-methods'.
+	SequenceableCollection
+		compile: aSelector generateCarCdr
+		classified: 'generated-methods'.
+	[ self hasMethod: aSelector asSymbol ] whileFalse: [ "doesn't work"
+		500 milliSeconds asDelay wait ].
 	^ aSelector asSymbol value: self
 ]
 
