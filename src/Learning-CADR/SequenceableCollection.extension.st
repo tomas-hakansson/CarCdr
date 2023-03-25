@@ -16,3 +16,9 @@ SequenceableCollection >> doesNotUnderstand: aMessage [
 		ifTrue: [ ^ SequenceableCollection carCdr: s ]
 		ifFalse: [ super doesNotUnderstand: aMessage ]
 ]
+
+{ #category : #'*Learning-CADR' }
+SequenceableCollection class >> hasMethod: aSelector [
+
+	^ self compiledMethodAt: aSelector ifPresent: [ true ] ifAbsent: [ false ]
+]
