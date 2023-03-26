@@ -3,17 +3,16 @@ Extension { #name : #String }
 { #category : #'*Learning-CADR' }
 String >> generateCarCdr [
 
-	| rs ns |
-	rs := self reverse.
-	ns := self , ' ^ self '.
-	2 to: rs size - 1 do: [ :index | 
-		| c |
-		c := rs at: index.
-		ns := ns , (c = $a
-			       ifTrue: [ 'first ' ]
-			       ifFalse: [ 'allButFirst ' ]) ].
-	^ ns
-	
+	| onlyADs sl |
+	onlyADs := self allButLast allButFirst.
+	sl := onlyADs asOrderedCollection collect: [ :c | 
+		      $a = c
+			      ifTrue: [ 'first ' ]
+			      ifFalse: [ 'allButFirst ' ] ].
+
+	^ '' join: { 
+			  self.
+			  ' ^ self ' } , sl reverse
 ]
 
 { #category : #'*Learning-CADR' }
