@@ -48,9 +48,21 @@ CarCdrTest >> testGenerate_CDR [
 ]
 
 { #category : #tests }
+CarCdrTest >> testValidate_AR_isFalse [
+
+	self assert: 'ar' isCarCdr equals: false
+]
+
+{ #category : #tests }
 CarCdrTest >> testValidate_CAR_isTrue [
 
 	self assert: 'car' isCarCdr equals: true
+]
+
+{ #category : #tests }
+CarCdrTest >> testValidate_CA_isFalse [
+
+	self assert: 'ca' isCarCdr equals: false
 ]
 
 { #category : #tests }
