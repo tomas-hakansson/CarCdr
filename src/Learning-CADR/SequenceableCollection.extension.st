@@ -5,7 +5,7 @@ SequenceableCollection >> carCdr: aSelector [
 
 	SequenceableCollection
 		compile: aSelector generateCarCdr
-		classified: 'generated-methods'.
+		classified: CarCdr protocolName.
 	^ aSelector asSymbol value: self
 ]
 
