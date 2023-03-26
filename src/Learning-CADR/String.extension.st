@@ -19,22 +19,17 @@ String >> generateCarCdr [
 { #category : #'*Learning-CADR' }
 String >> isCarCdr [
 
-	| f m l isFalse |
-	
-	"fail fast if the given string is too small."
-	self size < 3 ifTrue: [ ^ false ].
+	self size < 3 ifTrue: [ ^ false ]. "fail fast if the given string is too small."
 
-	f := self first = $c.
+	self first = $c ifFalse: [ ^ false ].
 
-	m := true.
 	2 to: self size - 1 do: [ :index | 
 		| c t |
 		c := self at: index.
 		t := 'ad' includes: c.
-		t ifFalse: [ m := false ] ].
+		t ifFalse: [ ^ false ] ].
 
-	l := self last = $r.
+	self last = $r ifFalse: [ ^ false ]. 
 
-	isFalse := { f . m . l } includes: false.
-	^ isFalse not
+	^ true
 ]
