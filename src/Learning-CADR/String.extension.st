@@ -3,12 +3,12 @@ Extension { #name : #String }
 { #category : #'*Learning-CADR' }
 String >> generateCarCdr [
 
-	| onlyADs sl |
-	onlyADs := self allButLast allButFirst.
-	sl := onlyADs asOrderedCollection collect: [ :c | 
+	| onlyAsAndDs sl |
+	onlyAsAndDs := self allButLast allButFirst. "Removes first and last letters."
+	sl := onlyAsAndDs collect: [ :c | 
 		      $a = c
 			      ifTrue: [ 'first ' ]
-			      ifFalse: [ 'allButFirst ' ] ].
+			      ifFalse: [ 'allButFirst ' ] ] as: OrderedCollection .
 
 	^ '' join: { 
 			  self.
