@@ -6,7 +6,7 @@ SequenceableCollection >> carCdr: aSelector [
 	SequenceableCollection
 		compile: aSelector generateCarCdr
 		classified: CarCdr protocolName.
-	^ aSelector asSymbol value: self
+	^ self perform: aSelector
 ]
 
 { #category : #'*Learning-CADR' }
